@@ -3,7 +3,8 @@ import { Platform } from "react-native"
 export const convertToPostMessageString = obj => {
   return JSON.stringify(obj, (key, val) => {
     if (typeof val === "function") {
-      return new Function("return " + val.toString())
+      return val.toString()
+      //return new Function("return " + val.toString())
     }
     return val
   })
